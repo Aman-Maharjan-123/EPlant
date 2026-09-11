@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Form — Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="admin-form">
+    <div class="admin-layout">
+        <main class="admin-content">
+            <div style="max-width:800px; margin:0 auto;">
+                <a href="admin-manage-plants.html" class="text-muted text-sm mb-24" style="display:inline-flex;align-items:center;gap:8px;"><i class="fas fa-arrow-left"></i> Back to Inventory</a>
+                <h1 class="mb-32" id="form-title">Add New Plant</h1>
+                
+                <div class="card" style="padding:40px;">
+                    <form onsubmit="savePlant(event)">
+                        <div class="grid-3">
+                            <div class="form-group">
+                                <label class="form-label">Plant Name</label>
+                                <input type="text" class="form-input" id="pName" placeholder="e.g. Monstera" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Placement / Environment</label>
+                                <select class="form-input" id="pCat" required>
+                                    <option value="Indoor">Indoor Plant</option>
+                                    <option value="Outdoor">Outdoor Plant</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Season</label>
+                                <select class="form-input" id="pSeason" required>
+                                    <option value="All-Season">All-Season / Year-Round</option>
+                                    <option value="Spring">Spring</option>
+                                    <option value="Summer">Summer</option>
+                                    <option value="Autumn">Autumn</option>
+                                    <option value="Winter">Winter</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid-2">
+                            <div class="form-group"><label class="form-label">Price (Rs.)</label><input type="number" class="form-input" id="pPrice" placeholder="0.00" required></div>
+                            <div class="form-group"><label class="form-label">Stock Quantity</label><input type="number" class="form-input" id="pStock" placeholder="0" required></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Plant Image</label>
+                            <div class="upload-tabs">
+                                <button type="button" class="upload-tab-btn active" id="tabUploadBtn" onclick="switchImageTab('upload')">
+                                    <i class="fas fa-desktop"></i> Upload from Computer
+                                </button>
+                                <button type="button" class="upload-tab-btn" id="tabUrlBtn" onclick="switchImageTab('url')">
+                                    <i class="fas fa-link"></i> Image URL
+                                </button>
+                            </div>
+
+                            <!-- Upload from Computer Section -->
+                            <div id="uploadSection">
+                                <div class="upload-dropzone" id="dropzone" onclick="document.getElementById('pFileInput').click()">
+                                    <i class="fas fa-cloud-arrow-up upload-icon"></i>
+                                    <div class="upload-title">Choose a file or drag &amp; drop it here</div>
+                                    <div class="upload-hint">JPEG, PNG, WEBP, GIF up to 10MB</div>
+                                    <input type="file" id="pFileInput" accept="image/*" style="display:none" onchange="handleFileSelect(this.files)">
+                                </div>
+                            </div>
+
+                            <!-- Image URL Section -->
+                            <div id="urlSection" style="display:none;">
+                                <input type="url" class="form-input" id="pImage" placeholder="https://images.unsplash.com/..." oninput="handleUrlInput(this.value)">
+                            </div>
+
+                            <!-- Hidden field to store the resolved image URL/path -->
+                            <input type="hidden" id="pEffectiveImage">
+
+                            <!-- Image Preview Card -->
+                            <div class="image-preview-card" id="imagePreviewContainer" style="display:none;">
+                                <img id="imagePreview" src="" alt="Preview">
+                                <div class="preview-info">
+                                    <div class="preview-name" id="previewFileName">Selected Image</div>
+                                    <div class="preview-status" id="previewStatus">
+                                        <i class="fas fa-check-circle"></i> Ready
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-remove-preview" onclick="removeImage()">
+                                    <i class="fas fa-times"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="form-label">Description</label><textarea class="form-input" id="pDesc" style="height:120px;" placeholder="Tell us about this plant..." required></textarea></div>
+                        
+                        <div style="display:flex;gap:12px;margin-top:24px;">
+                            <button type="submit" class="btn btn-primary" style="padding:14px 40px;">Save Plant Details</button>
+                            <a href="admin-manage-plants.html" class="btn btn-ghost">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

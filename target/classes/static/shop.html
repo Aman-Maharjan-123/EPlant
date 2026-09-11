@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Plants — e-plant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="shop">
+    <main style="padding-top:40px;min-height:80vh;">
+        <div class="container">
+            <header class="mb-32">
+                <h1 class="section-title">Seasonal Plant Catalog</h1>
+                <p class="text-muted">Explore our curated seasonal collection of indoor and outdoor greenery</p>
+            </header>
+
+            <div class="card mb-32" style="padding:24px;background:var(--bg-alt, rgba(255,255,255,0.02));">
+                <div class="flex-between" style="flex-wrap:wrap;gap:20px;align-items:center;">
+                    <div class="flex-col" style="gap:16px;flex:1;min-width:280px;">
+                        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                            <span class="text-sm fw-600 text-muted" style="min-width:90px;"><i class="fas fa-layer-group text-green"></i> Type:</span>
+                            <div class="pill-filters" id="catFilters"></div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                            <span class="text-sm fw-600 text-muted" style="min-width:90px;"><i class="fas fa-calendar-alt text-green"></i> Season:</span>
+                            <div class="pill-filters" id="seasonFilters"></div>
+                        </div>
+                    </div>
+                    <div style="position:relative;width:100%;max-width:320px;">
+                        <i class="fas fa-search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text-sec);"></i>
+                        <input type="text" class="form-input" id="shopSearch" placeholder="Search plants by name..." oninput="filterShop()" style="padding-left:40px;">
+                    </div>
+                </div>
+            </div>
+
+            <div id="shopEmpty" style="display:none;padding:100px 0;text-align:center;">
+                <i class="fas fa-search mb-16" style="font-size:3rem;opacity:0.2;"></i>
+                <h3>No plants found</h3>
+                <p class="text-muted">Try adjusting your search or filters</p>
+            </div>
+
+            <div class="grid-4" id="shopGrid"></div>
+        </div>
+    </main>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

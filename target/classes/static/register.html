@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account — e-plant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="register">
+    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg);">
+        <div class="auth-card fade-up">
+            <div class="auth-logo"><a href="index.html"><img src="assets/img/logo main file-05.png" alt="e-plant" style="height:58px;"></a></div>
+            <h2 style="text-align:center;margin-bottom:8px;">Start Your Journey</h2>
+            <p class="text-muted" style="text-align:center;margin-bottom:32px;">Join the community of 2,000+ plant lovers</p>
+            
+            <form onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="regName" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="regEmail" placeholder="name@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="regPw" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" style="padding:16px;">Create Account</button>
+            </form>
+            
+            <p class="text-muted text-sm" style="text-align:center;margin-top:24px;">
+                Already have an account? <a href="login.html" class="text-green fw-600">Sign In</a>
+            </p>
+        </div>
+    </div>
+    <div id="toast-container"></div>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

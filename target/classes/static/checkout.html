@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — e-plant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="checkout">
+    <main style="padding:40px 0; min-height:80vh;">
+        <div class="container">
+            <h1 class="mb-32">Secure Checkout</h1>
+            <div class="grid-2" style="grid-template-columns: 1.5fr 1fr; gap:40px;">
+                <div class="fade-up">
+                    <div class="card" style="padding:32px; margin-bottom:24px;">
+                        <h3 class="mb-24">Shipping Information</h3>
+                        <form id="checkout-form" onsubmit="handlePlaceOrder(event)">
+                            <div class="grid-2">
+                                <div class="form-group"><label class="form-label">First Name</label><input type="text" class="form-input" required></div>
+                                <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="form-input" required></div>
+                            </div>
+                            <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input" required></div>
+                            <div class="form-group"><label class="form-label">Shipping Address</label><textarea class="form-input" style="height:100px;" required></textarea></div>
+                            
+                            <h3 class="mt-24 mb-24">Payment Method</h3>
+                            <div class="flex-col" style="gap:12px;">
+                                <label class="card" style="padding:20px; cursor:pointer; display:flex; align-items:center; gap:16px;">
+                                    <input type="radio" name="pay" value="cod" checked>
+                                    <span><i class="fas fa-truck"></i> Cash on Delivery</span>
+                                </label>
+                                <label class="card" style="padding:20px; cursor:pointer; display:flex; align-items:center; gap:16px; opacity:0.6;">
+                                    <input type="radio" name="pay" value="card" disabled>
+                                    <span><i class="fas fa-credit-card"></i> Credit/Debit Card (Coming Soon)</span>
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full mt-32" style="padding:16px; font-size:1.1rem;">Place Order</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="fade-up" style="animation-delay:0.1s;">
+                    <div class="summary-card" id="checkout-summary">
+                        <!-- Summary injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        async function initCheckout() {
+            const sub = cartSub(), df = deliveryFee(), tot = sub + df;
+            const c = document.getElementById('checkout-summary');
+            if(!c) return;
+            c.innerHTML = `
+                <h3 class="mb-24">Order Summary</h3>
+                <div class="flex-col mb-16" style="gap:10px; border-bottom:1px solid var(--border); padding-bottom:16px;">
+                    ${S.cart.map(i => {
+                        const p = getPlant(i.plantId);
+                        return `<div class="flex-between text-sm"><span>${p.name} x ${i.qty}</span><span>${fmt(p.price * i.qty)}</span></div>`;
+                    }).join('')}
+                </div>
+                <div class="summary-row"><span>Subtotal</span><span>${fmt(sub)}</span></div>
+                <div class="summary-row"><span>Shipping</span><span>${df === 0 ? 'Free' : fmt(df)}</span></div>
+                <div class="summary-row total mt-16 pt-16" style="border-top:1px solid var(--border);"><span>Grand Total</span><span class="text-green">${fmt(tot)}</span></div>
+            `;
+        }
+        
+        async function handlePlaceOrder(e) {
+            e.preventDefault();
+            try {
+                const order = await api.post('/api/cart/' + S.user.id + '/checkout');
+                S.cart = [];
+                window.location.href = 'order-success.html?id=' + order.id;
+            } catch (err) {
+                toast('Failed to place order: ' + err.message, 'error');
+            }
+        }
+        
+        setTimeout(initCheckout, 100);
+    </script>
+</body>
+</html>

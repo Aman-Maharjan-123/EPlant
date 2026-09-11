@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-plant — Premium Greenery for Your Home</title>
+    <meta name="description" content="Fresh plants delivered right to your door. Browse our collection of indoor, outdoor, and succulent plants.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=3">
+</head>
+<body data-page="home">
+    <!-- Layout (Navbar, Sidebar, Footer) is automatically injected by app.js -->
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-glow-bg"></div>
+            <div class="container">
+                <div class="hero-grid">
+                    <!-- Left Column: Text & CTAs -->
+                    <div class="hero-content-col fade-up">
+                        <div class="hero-pill mb-16">
+                            <span class="hero-pill-dot"></span>
+                            <span>Kathmandu's Seasonal Plant Nursery</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Seasonal Plants,<br>
+                            <span class="text-green">Designed for Life</span>
+                        </h1>
+                        <p class="hero-subtitle text-muted">
+                            Elevate your living space with our handpicked seasonal collection of indoor and outdoor plants. Delivered fresh, healthy, and potted to your doorstep in Kathmandu Valley.
+                        </p>
+                        <div class="hero-actions">
+                            <a href="shop.html" class="btn btn-primary" style="padding:16px 36px;font-size:1rem;">Explore Shop <i class="fas fa-arrow-right"></i></a>
+                            <a href="about.html" class="btn btn-ghost" style="padding:16px 36px;font-size:1rem;">Our Story</a>
+                        </div>
+                        <div class="hero-trust-row">
+                            <div class="trust-item">
+                                <span class="trust-num">1,200+</span>
+                                <span class="trust-lbl">Happy Plant Parents</span>
+                            </div>
+                            <div class="trust-sep"></div>
+                            <div class="trust-item">
+                                <span class="trust-num">100%</span>
+                                <span class="trust-lbl">Arrive Alive Guarantee</span>
+                            </div>
+                            <div class="trust-sep"></div>
+                            <div class="trust-item">
+                                <span class="trust-num">30+</span>
+                                <span class="trust-lbl">Seasonal Varieties</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Featured Plant Visual -->
+                    <div class="hero-visual-col fade-up" id="hero-featured-plant">
+                        <div class="hero-card-frame">
+                            <img src="https://images.unsplash.com/photo-1545239351-ef35f43d514b?auto=format&fit=crop&q=80&w=900" alt="Featured Plant" class="hero-img" id="heroPlantImg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1545239351-ef35f43d514b?auto=format&fit=crop&q=80&w=900';">
+                            
+                            <!-- Floating Plant Badge (Top Right) -->
+                            <div class="hero-float-badge float-top" id="heroFloatTop">
+                                <div class="float-badge-icon"><i class="fas fa-leaf"></i></div>
+                                <div>
+                                    <div class="float-badge-name" id="heroPlantName">Fiddle Leaf Fig</div>
+                                    <div class="float-badge-meta" id="heroPlantMeta">Indoor Plant • Spring Season</div>
+                                </div>
+                            </div>
+
+                            <!-- Floating Rating Badge (Bottom Left) -->
+                            <div class="hero-float-badge float-bottom">
+                                <div class="float-badge-icon star-icon"><i class="fas fa-star"></i></div>
+                                <div>
+                                    <div class="float-badge-name">Top Rated 4.9/5</div>
+                                    <div class="float-badge-meta">Care Guide Included</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding:80px 0;">
+            <div class="container">
+                <div class="flex-between mb-32">
+                    <div>
+                        <h2 class="section-title">Popular Collections</h2>
+                        <p class="text-muted">Most loved plants by our community</p>
+                    </div>
+                    <a href="shop.html" class="btn btn-ghost btn-sm">View All Plants</a>
+                </div>
+                <div class="grid-4" id="home-popular-grid">
+                    <!-- Products Injected by app.js -->
+                </div>
+            </div>
+        </section>
+
+        <section style="padding:80px 0; background:rgba(255,255,255,0.02);">
+            <div class="container">
+                <div class="grid-3" style="gap:32px;">
+                    <div class="card" style="padding:32px; text-align:center;">
+                        <i class="fas fa-truck-fast text-green mb-16" style="font-size:2rem;"></i>
+                        <h3 class="mb-12">Fast Delivery</h3>
+                        <p class="text-muted text-sm">Same day delivery available within Kathmandu Valley for orders placed before 12 PM.</p>
+                    </div>
+                    <div class="card" style="padding:32px; text-align:center;">
+                        <i class="fas fa-shield-heart text-green mb-16" style="font-size:2rem;"></i>
+                        <h3 class="mb-12">Arrive Alive</h3>
+                        <p class="text-muted text-sm">Our 30-day guarantee ensures your plant arrives healthy and stays that way.</p>
+                    </div>
+                    <div class="card" style="padding:32px; text-align:center;">
+                        <i class="fas fa-headset text-green mb-16" style="font-size:2rem;"></i>
+                        <h3 class="mb-12">Expert Support</h3>
+                        <p class="text-muted text-sm">Need help? Our plant experts are available via chat to help your garden thrive.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding:80px 0;">
+            <div class="container">
+                <div class="grid-2" style="align-items:center; gap:80px;">
+                    <div class="fade-up">
+                        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=800" style="width:100%; border-radius:24px; box-shadow:var(--shadow);">
+                    </div>
+                    <div class="fade-up">
+                        <h2 class="mb-24">Unlock Your <span class="text-green">Inner Gardener</span></h2>
+                        <p class="text-muted mb-24" style="line-height:1.8;">We believe everyone has a green thumb—some just haven't found it yet. Our mission is to make plant care simple, accessible, and rewarding for everyone.</p>
+                        <div class="flex-col" style="gap:16px;">
+                            <div style="display:flex; gap:16px; align-items:center;">
+                                <div style="width:40px; height:40px; border-radius:50%; background:rgba(168,230,29,0.1); color:var(--primary); display:flex; align-items:center; justify-content:center;"><i class="fas fa-check"></i></div>
+                                <div><div class="fw-600">Care Guides Included</div><p class="text-muted text-sm">Every plant comes with a detailed digital care manual.</p></div>
+                            </div>
+                            <div style="display:flex; gap:16px; align-items:center;">
+                                <div style="width:40px; height:40px; border-radius:50%; background:rgba(168,230,29,0.1); color:var(--primary); display:flex; align-items:center; justify-content:center;"><i class="fas fa-check"></i></div>
+                                <div><div class="fw-600">Premium Soil Mix</div><p class="text-muted text-sm">We use custom organic soil for maximum growth.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding:80px 0; background:rgba(255,255,255,0.02);">
+            <div class="container">
+                <div style="background:var(--gradient);border-radius:24px;padding:64px;text-align:center;color:#000;">
+                    <h2 style="font-size:2.2rem;margin-bottom:12px;">Ready to Green Up Your Space?</h2>
+                    <p style="opacity:0.8;margin-bottom:32px;font-size:1.1rem;max-width:600px;margin-left:auto;margin-right:auto;">
+                        Join 2,000+ plant lovers who trust e-plant for their greenery needs. Free shipping on orders above Rs. 5,000.
+                    </p>
+                    <a href="shop.html" class="btn" style="background:#000;color:var(--primary);padding:16px 40px;font-weight:800;">Get Started Now</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-container"></div>
+    <script src="assets/js/app.js?v=3"></script>
+</body>
+</html>
