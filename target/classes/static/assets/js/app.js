@@ -43,14 +43,14 @@ if (!authToken) useAPI = false;
 
 const api = {
   get: async (url) => {
-    const res = await fetch('http://localhost:8080' + url, { headers: { 'Authorization': 'Bearer ' + authToken } });
+    const res = await fetch(url, { headers: { 'Authorization': 'Bearer ' + authToken } });
     if (res.status === 403) { handleForbidden(); throw new ForbiddenError(); }
     if (!res.ok) { const text = await res.text(); throw new Error(text || 'API Error: ' + res.status); }
     const text = await res.text();
-    try { return JSON.parse(text); } catch(e) { throw new Error('Invalid JSON: ' + text.substring(0, 100)); }
+    try { return JSON.parse(text); } catch (e) { throw new Error('Invalid JSON: ' + text.substring(0, 100)); }
   },
   post: async (url, data) => {
-    const res = await fetch('http://localhost:8080' + url, {
+    const res = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + authToken },
       body: JSON.stringify(data)
@@ -60,7 +60,7 @@ const api = {
     return res.json();
   },
   put: async (url, data) => {
-    const res = await fetch('http://localhost:8080' + url, {
+    const res = await fetch(url, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + authToken },
       body: JSON.stringify(data)
@@ -70,7 +70,7 @@ const api = {
     return res.json();
   },
   del: async (url) => {
-    const res = await fetch('http://localhost:8080' + url, { method: 'DELETE', headers: { 'Authorization': 'Bearer ' + authToken } });
+    const res = await fetch(url, { method: 'DELETE', headers: { 'Authorization': 'Bearer ' + authToken } });
     if (res.status === 403) { handleForbidden(); throw new ForbiddenError(); }
     if (!res.ok) throw new Error('API Error: ' + res.status);
   }
@@ -97,7 +97,7 @@ const loadState = async () => {
       const savedUser = localStorage.getItem('ep_user');
       if (savedUser) {
         S.user = JSON.parse(savedUser);
-        try { S.cart = await api.get('/api/cart/' + S.user.id); } catch(e) { console.warn('Cart load failed', e); }
+        try { S.cart = await api.get('/api/cart/' + S.user.id); } catch (e) { console.warn('Cart load failed', e); }
       }
       return;
     } catch (e) {
@@ -147,7 +147,7 @@ function renderHeader() {
   const cc = cartCount();
   const pg = document.body.dataset.page;
   const isAuth = !!S.user;
-  
+
   const navHtml = `
     <div class="navbar-inner">
         <a href="index.html" class="nav-logo"><img src="assets/img/logo main file-05.png" alt="e-plant"></a>
@@ -182,11 +182,11 @@ function renderHeader() {
             <button class="mobile-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
         </div>
     </div>`;
-  
+
   const header = document.createElement('nav');
   header.className = 'navbar';
   header.innerHTML = navHtml;
-  
+
   if (!pg.startsWith('admin') && !['login', 'register'].includes(pg)) {
     document.body.prepend(header);
     renderFooter();
@@ -380,7 +380,7 @@ function doLogout() {
 
 async function refreshUI() {
   const oldNav = document.querySelector('.navbar'); const oldSidebar = $('sidebar'); const oldOverlay = $('overlay');
-  if(oldNav) oldNav.remove(); if(oldSidebar) oldSidebar.remove(); if(oldOverlay) oldOverlay.remove();
+  if (oldNav) oldNav.remove(); if (oldSidebar) oldSidebar.remove(); if (oldOverlay) oldOverlay.remove();
   renderHeader(); initTheme();
   const pg = document.body.dataset.page;
   if (pg === 'cart') await initCart(); if (pg === 'shop') filterShop();
@@ -388,7 +388,7 @@ async function refreshUI() {
 
 async function initHome() {
   if (useAPI && S.plants.length === 0) {
-    try { S.plants = await api.get('/api/plants'); } catch(e) { console.warn(e); }
+    try { S.plants = await api.get('/api/plants'); } catch (e) { console.warn(e); }
   }
   const grid = $('home-popular-grid'); if (grid) grid.innerHTML = S.plants.slice(0, 4).map(p => plantCard(p)).join('');
   const hero = $('hero-featured-plant'); if (hero && S.plants[0]) hero.innerHTML = `<img src="${S.plants[0].image}" class="fade-up" style="width:100%;max-height:400px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow);">`;
@@ -396,7 +396,7 @@ async function initHome() {
 
 async function initShop() {
   if (useAPI && S.plants.length === 0) {
-    try { S.plants = await api.get('/api/plants'); } catch(e) { console.warn(e); }
+    try { S.plants = await api.get('/api/plants'); } catch (e) { console.warn(e); }
   }
   const cats = ['All', ...new Set(S.plants.map(p => p.category))];
   const fc = $('catFilters'); if (fc) fc.innerHTML = cats.map(c => `<button class="pill ${currentCat === c ? 'active' : ''}" onclick="setCat('${c}',this)">${c}</button>`).join('');
@@ -415,7 +415,7 @@ function filterShop() {
 
 async function initDetail() {
   if (useAPI && S.plants.length === 0) {
-    try { S.plants = await api.get('/api/plants'); } catch(e) { console.warn(e); }
+    try { S.plants = await api.get('/api/plants'); } catch (e) { console.warn(e); }
   }
   const id = new URLSearchParams(window.location.search).get('id'); const p = getPlant(id);
   const container = $('detail-container'); if (!container || !p) return;
@@ -459,7 +459,7 @@ async function initMyOrders() {
   const c = $('orders-list'); if (!c || !S.user) return;
   let userOrders = [];
   if (useAPI) {
-    try { userOrders = await api.get('/api/orders/' + S.user.id); } catch(e) { console.warn(e); }
+    try { userOrders = await api.get('/api/orders/' + S.user.id); } catch (e) { console.warn(e); }
     userOrders = userOrders.map(o => ({ ...o, items: o.itemsJson ? JSON.parse(o.itemsJson) : [] }));
   } else {
     userOrders = S.orders.filter(o => o.userId === S.user.id);
@@ -467,10 +467,10 @@ async function initMyOrders() {
   userOrders = userOrders.reverse();
   if (!userOrders.length) { c.innerHTML = '<div class="empty-state"><h3>No orders yet</h3></div>'; return; }
   c.innerHTML = userOrders.map(o => {
-    const statusColor = o.status === 'Delivered' ? 'badge-green' : 
-                        o.status === 'Shipped' ? 'badge-blue' : 
-                        o.status === 'Cancelled' ? 'badge-red' : 'badge-amber';
-    return `<div class="card mb-24" style="padding:24px;"><div class="flex-between mb-16"><div><span class="fw-700">Order #${o.id}</span><div class="text-muted text-sm">${o.date}</div></div><span class="badge ${statusColor}">${o.status}</span></div><div class="flex-col" style="gap:12px;">${o.items.map(i => {const p = getPlant(i.plantId); return `<div class="flex-between text-sm"><span>${p ? p.name : 'Unknown'} x ${i.qty}</span><span>${fmt((p ? p.price : 0) * i.qty)}</span></div>`}).join('')}</div><div class="flex-between mt-16 pt-16" style="border-top:1px solid var(--border);"><span class="fw-600">Total</span><span class="fw-700 text-green">${fmt(o.total)}</span></div></div>`;
+    const statusColor = o.status === 'Delivered' ? 'badge-green' :
+      o.status === 'Shipped' ? 'badge-blue' :
+        o.status === 'Cancelled' ? 'badge-red' : 'badge-amber';
+    return `<div class="card mb-24" style="padding:24px;"><div class="flex-between mb-16"><div><span class="fw-700">Order #${o.id}</span><div class="text-muted text-sm">${o.date}</div></div><span class="badge ${statusColor}">${o.status}</span></div><div class="flex-col" style="gap:12px;">${o.items.map(i => { const p = getPlant(i.plantId); return `<div class="flex-between text-sm"><span>${p ? p.name : 'Unknown'} x ${i.qty}</span><span>${fmt((p ? p.price : 0) * i.qty)}</span></div>` }).join('')}</div><div class="flex-between mt-16 pt-16" style="border-top:1px solid var(--border);"><span class="fw-600">Total</span><span class="fw-700 text-green">${fmt(o.total)}</span></div></div>`;
   }).join('');
 }
 
@@ -484,9 +484,9 @@ async function initAdminDash() {
       stats = await api.get('/api/admin/stats');
       orders = await api.get('/api/orders');
       users = await api.get('/api/admin/users');
-    } catch(e) { console.warn(e); }
+    } catch (e) { console.warn(e); }
   }
-  const totalSales = useAPI ? (stats.totalSales || 0) : S.orders.reduce((s,o)=>s+o.total,0);
+  const totalSales = useAPI ? (stats.totalSales || 0) : S.orders.reduce((s, o) => s + o.total, 0);
   const orderCount = useAPI ? (stats.totalOrders || 0) : S.orders.length;
   const totalPlants = useAPI ? (stats.totalPlants || S.plants.length) : S.plants.length;
   const totalUsers = useAPI ? (stats.totalUsers || 0) : S.users.length;
@@ -642,7 +642,7 @@ async function deleteUser(id) {
 async function initAdminManage() {
   const grid = $('admin-plants-grid'); if (!grid) return;
   if (useAPI && S.plants.length === 0) {
-    try { S.plants = await api.get('/api/plants'); } catch(e) { console.warn(e); }
+    try { S.plants = await api.get('/api/plants'); } catch (e) { console.warn(e); }
   }
   grid.innerHTML = S.plants.map(p => `<div class="card" style="padding:16px;display:flex;align-items:center;gap:16px;"><img src="${p.image}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;"><div style="flex:1;"><div class="fw-600">${p.name}</div><div class="text-muted text-sm">${p.category} • ${fmt(p.price)}</div></div><a href="admin-plant-form.html?id=${p.id}" class="btn btn-ghost btn-sm"><i class="fas fa-edit"></i></a><button class="btn btn-ghost btn-sm" onclick="deletePlant(${p.id})"><i class="fas fa-trash"></i></button></div>`).join('');
 }
@@ -651,11 +651,11 @@ async function initAdminOrders() {
   const c = $('admin-orders-list'); if (!c) return;
   let orders = [];
   if (useAPI) {
-    try { orders = await api.get('/api/orders'); } catch(e) { console.warn(e); }
+    try { orders = await api.get('/api/orders'); } catch (e) { console.warn(e); }
   } else {
     orders = S.orders;
   }
-  c.innerHTML = orders.slice().reverse().map(o => `<div class="card mb-24" style="padding:24px;"><div class="flex-between"><div><span class="fw-700">Order #${o.id}</span></div><select class="form-input btn-sm" style="width:auto;" onchange="updateOrderStatus(${o.id}, this.value)"><option ${o.status==='Pending'?'selected':''}>Pending</option><option ${o.status==='Shipped'?'selected':''}>Shipped</option><option ${o.status==='Delivered'?'selected':''}>Delivered</option></select></div><div class="flex-between mt-12"><span class="text-muted text-sm">${o.date}</span><span class="fw-700 text-green">${fmt(o.total)}</span></div></div>`).join('');
+  c.innerHTML = orders.slice().reverse().map(o => `<div class="card mb-24" style="padding:24px;"><div class="flex-between"><div><span class="fw-700">Order #${o.id}</span></div><select class="form-input btn-sm" style="width:auto;" onchange="updateOrderStatus(${o.id}, this.value)"><option ${o.status === 'Pending' ? 'selected' : ''}>Pending</option><option ${o.status === 'Shipped' ? 'selected' : ''}>Shipped</option><option ${o.status === 'Delivered' ? 'selected' : ''}>Delivered</option></select></div><div class="flex-between mt-12"><span class="text-muted text-sm">${o.date}</span><span class="fw-700 text-green">${fmt(o.total)}</span></div></div>`).join('');
 }
 
 function initAdminForm() {
@@ -739,7 +739,7 @@ async function handleRegister(e) {
 window.onload = async () => {
   await loadState(); initTheme(); renderHeader();
   const pg = document.body.dataset.page;
-  switch(pg) {
+  switch (pg) {
     case 'home': await initHome(); break;
     case 'shop': initShop(); break;
     case 'detail': await initDetail(); break;
@@ -756,7 +756,7 @@ window.onload = async () => {
 };
 
 window.addToCart = addToCart; window.updateCartQty = updateCartQty; window.removeFromCart = removeFromCart;
-window.handleLogin = handleLogin; window.handleRegister = handleRegister; 
+window.handleLogin = handleLogin; window.handleRegister = handleRegister;
 window.toggleSidebar = toggleSidebar; window.toggleDD = toggleDD; window.doLogout = doLogout;
 window.setCat = setCat; window.filterShop = filterShop; window.toggleTheme = toggleTheme;
 window.savePlant = savePlant; window.deletePlant = deletePlant; window.updateOrderStatus = updateOrderStatus;
