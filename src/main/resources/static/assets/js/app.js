@@ -222,7 +222,7 @@ function renderAdminSidebar() {
   const sidebarHtml = `
     <div class="admin-sidebar">
         <div class="sidebar-logo" style="margin-bottom:40px;">
-            <img src="assets/img/logo main file-05.png" alt="e-plant" style="height:58px;">
+            <a href="index.html" class="nav-logo"><img src="assets/img/logo main file-05.png" alt="e-plant" style="height:58px;"></a>
         </div>
         <div class="sidebar-nav">
             <a href="admin-dashboard.html" class="sidebar-link ${pg === 'admin-dash' ? 'active' : ''}"><i class="fas fa-gauge-high"></i> Dashboard</a>
