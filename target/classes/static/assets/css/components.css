@@ -151,3 +151,64 @@
   border-radius: 16px;
   box-shadow: var(--shadow);
 }
+
+/* PILL / TAB FILTERS */
+.pill-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-sec);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+[data-theme="light"] .pill {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-sec);
+  border-color: var(--border);
+}
+
+.pill:hover {
+  color: var(--text-pri);
+  border-color: rgba(168, 230, 29, 0.45);
+  background: rgba(168, 230, 29, 0.08);
+  transform: translateY(-1px);
+}
+
+.pill.active {
+  background: var(--primary);
+  color: #062806;
+  font-weight: 700;
+  border-color: var(--primary);
+  box-shadow: 0 3px 12px rgba(168, 230, 29, 0.35);
+  transform: translateY(-1px);
+}
+
+.pill:active {
+  transform: translateY(0);
+}
+
+.badge-season {
+  background: rgba(168, 230, 29, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(168, 230, 29, 0.25);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+

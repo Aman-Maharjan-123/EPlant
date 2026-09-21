@@ -17,42 +17,46 @@ const CAT_GRAD = {
 };
 
 const DEFAULT_PLANTS = [
-  { id: 1, name: "Monstera Deliciosa", category: "Indoor", description: "A stunning tropical plant known for its large, glossy, split leaves. Perfect for adding a jungle vibe to any room.", price: 4500, stock: 45, image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&q=80&w=800" },
-  { id: 2, name: "Snake Plant", category: "Indoor", description: "One of the toughest houseplants around. Thrives in low light and requires minimal watering.", price: 2500, stock: 120, image: "https://images.unsplash.com/photo-1593482892290-f54927ae1bf6?auto=format&fit=crop&q=80&w=800" },
-  { id: 3, name: "Fiddle Leaf Fig", category: "Indoor", description: "A designer favorite with large, violin-shaped leaves. A statement piece for any living space.", price: 6500, stock: 8, image: "https://images.unsplash.com/photo-1545239351-ef35f43d514b?auto=format&fit=crop&q=80&w=800" },
-  { id: 4, name: "English Ivy", category: "Outdoor", description: "Classic climbing plant with elegant lobed leaves. Perfect for covering walls or trellises.", price: 1800, stock: 85, image: "https://images.unsplash.com/photo-1599394022918-6c276a50e181?auto=format&fit=crop&q=80&w=800" },
-  { id: 5, name: "Japanese Maple", category: "Outdoor", description: "Elegant ornamental tree with delicate leaves that turn brilliant crimson in autumn.", price: 9500, stock: 12, image: "https://images.unsplash.com/photo-1542601906990-b4d3fb773b09?auto=format&fit=crop&q=80&w=800" },
-  { id: 6, name: "Echeveria", category: "Succulent", description: "Rosette-forming succulent with pastel-colored leaves. Drought-tolerant and easy to propagate.", price: 1200, stock: 200, image: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&q=80&w=800" },
-  { id: 7, name: "Aloe Vera", category: "Succulent", description: "A must-have succulent with healing gel inside its thick leaves. Low maintenance and multi-purpose.", price: 1500, stock: 95, image: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&q=80&w=800" },
-  { id: 8, name: "Phalaenopsis Orchid", category: "Flowering", description: "Exquisite flowering plant with elegant arching blooms that last for months.", price: 5200, stock: 30, image: "https://images.unsplash.com/photo-1534885391148-433dfa627883?auto=format&fit=crop&q=80&w=800" },
-  { id: 9, name: "Peace Lily", category: "Flowering", description: "Beautiful white spathes and glossy dark green leaves. One of the best air-purifying indoor plants.", price: 3200, stock: 60, image: "https://images.unsplash.com/photo-1597055181300-e3633a207519?auto=format&fit=crop&q=80&w=800" },
-  { id: 10, name: "Bird of Paradise", category: "Tropical", description: "Dramatic plant with large banana-like leaves and striking orange-blue crane-shaped flowers.", price: 7200, stock: 5, image: "https://images.unsplash.com/photo-1620190892019-33827d0f1eb9?auto=format&fit=crop&q=80&w=800" },
-  { id: 11, name: "Sweet Basil", category: "Herb", description: "Fresh, aromatic basil perfect for cooking and salads. Grow it on your windowsill.", price: 800, stock: 150, image: "https://images.unsplash.com/photo-1618164436241-4473940d1f5c?auto=format&fit=crop&q=80&w=800" },
-  { id: 12, name: "Rosemary", category: "Herb", description: "Woody, fragrant herb essential in any kitchen garden. Wonderful as an ornamental shrub.", price: 900, stock: 110, image: "https://images.unsplash.com/photo-1594313177694-8228148b598b?auto=format&fit=crop&q=80&w=800" },
-  { id: 13, name: "Areca Palm", category: "Tropical", description: "Lush, feathery palm that brings instant tropical vibes to any room. Natural air humidifier.", price: 3800, stock: 35, image: "https://images.unsplash.com/photo-1592150621344-22d50847ba8c?auto=format&fit=crop&q=80&w=800" },
-  { id: 14, name: "Hibiscus", category: "Flowering", description: "Bold, trumpet-shaped flowers in vibrant colors. A classic garden plant that blooms abundantly.", price: 2800, stock: 20, image: "https://images.unsplash.com/photo-1534567059665-3f9ee423f790?auto=format&fit=crop&q=80&w=800" },
-  { id: 15, name: "Golden Pothos", category: "Indoor", description: "The ultimate beginner plant with trailing vines of heart-shaped, variegated leaves.", price: 1800, stock: 15, image: "https://images.unsplash.com/photo-1637967886160-fd78dc3eb315?auto=format&fit=crop&q=80&w=800" },
-  { id: 16, name: "Jade Plant", category: "Succulent", description: "A symbol of prosperity with thick, oval leaves on woody stems. Can live for decades.", price: 2100, stock: 70, image: "https://images.unsplash.com/photo-1622329381622-df38d2f5341f?auto=format&fit=crop&q=80&w=800" },
+  { id: 1, name: "Monstera Deliciosa", category: "Indoor", season: "Summer", description: "A stunning tropical plant known for its large, glossy, split leaves. Perfect for adding a jungle vibe to any room.", price: 4500, stock: 45, image: "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?auto=format&fit=crop&q=80&w=800" },
+  { id: 2, name: "Snake Plant", category: "Indoor", season: "All-Season", description: "One of the toughest houseplants around. Thrives in low light and requires minimal watering.", price: 2500, stock: 120, image: "https://images.unsplash.com/photo-1593482892290-f54927ae1bf6?auto=format&fit=crop&q=80&w=800" },
+  { id: 3, name: "Fiddle Leaf Fig", category: "Indoor", season: "Spring", description: "A designer favorite with large, violin-shaped leaves. A statement piece for any living space.", price: 6500, stock: 8, image: "https://images.unsplash.com/photo-1545239351-ef35f43d514b?auto=format&fit=crop&q=80&w=800" },
+  { id: 4, name: "English Ivy", category: "Outdoor", season: "All-Season", description: "Classic climbing plant with elegant lobed leaves. Perfect for covering walls or trellises.", price: 1800, stock: 85, image: "https://images.unsplash.com/photo-1599394022918-6c276a50e181?auto=format&fit=crop&q=80&w=800" },
+  { id: 5, name: "Japanese Maple", category: "Outdoor", season: "Autumn", description: "Elegant ornamental tree with delicate leaves that turn brilliant crimson in autumn.", price: 9500, stock: 12, image: "https://images.unsplash.com/photo-1542601906990-b4d3fb773b09?auto=format&fit=crop&q=80&w=800" },
+  { id: 6, name: "Echeveria", category: "Outdoor", season: "Summer", description: "Rosette-forming succulent with pastel-colored leaves. Drought-tolerant and easy to propagate.", price: 1200, stock: 200, image: "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&q=80&w=800" },
+  { id: 7, name: "Aloe Vera", category: "Indoor", season: "All-Season", description: "A must-have succulent with healing gel inside its thick leaves. Low maintenance and multi-purpose.", price: 1500, stock: 95, image: "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?auto=format&fit=crop&q=80&w=800" },
+  { id: 8, name: "Phalaenopsis Orchid", category: "Indoor", season: "Spring", description: "Exquisite flowering plant with elegant arching blooms that last for months.", price: 5200, stock: 30, image: "https://images.unsplash.com/photo-1534885391148-433dfa627883?auto=format&fit=crop&q=80&w=800" },
+  { id: 9, name: "Peace Lily", category: "Indoor", season: "Spring", description: "Beautiful white spathes and glossy dark green leaves. One of the best air-purifying indoor plants.", price: 3200, stock: 60, image: "https://images.unsplash.com/photo-1597055181300-e3633a207519?auto=format&fit=crop&q=80&w=800" },
+  { id: 10, name: "Bird of Paradise", category: "Indoor", season: "Summer", description: "Dramatic plant with large banana-like leaves and striking orange-blue crane-shaped flowers.", price: 7200, stock: 5, image: "https://images.unsplash.com/photo-1620190892019-33827d0f1eb9?auto=format&fit=crop&q=80&w=800" },
+  { id: 11, name: "Sweet Basil", category: "Outdoor", season: "Summer", description: "Fresh, aromatic basil perfect for cooking and salads. Grow it on your windowsill.", price: 800, stock: 150, image: "https://images.unsplash.com/photo-1618164436241-4473940d1f5c?auto=format&fit=crop&q=80&w=800" },
+  { id: 12, name: "Rosemary", category: "Outdoor", season: "Spring", description: "Woody, fragrant herb essential in any kitchen garden. Wonderful as an ornamental shrub.", price: 900, stock: 110, image: "https://images.unsplash.com/photo-1594313177694-8228148b598b?auto=format&fit=crop&q=80&w=800" },
+  { id: 13, name: "Areca Palm", category: "Indoor", season: "All-Season", description: "Lush, feathery palm that brings instant tropical vibes to any room. Natural air humidifier.", price: 3800, stock: 35, image: "https://images.unsplash.com/photo-1592150621344-22d50847ba8c?auto=format&fit=crop&q=80&w=800" },
+  { id: 14, name: "Hibiscus", category: "Outdoor", season: "Summer", description: "Bold, trumpet-shaped flowers in vibrant colors. A classic garden plant that blooms abundantly.", price: 2800, stock: 20, image: "https://images.unsplash.com/photo-1534567059665-3f9ee423f790?auto=format&fit=crop&q=80&w=800" },
+  { id: 15, name: "Golden Pothos", category: "Indoor", season: "All-Season", description: "The ultimate beginner plant with trailing vines of heart-shaped, variegated leaves.", price: 1800, stock: 15, image: "https://images.unsplash.com/photo-1637967886160-fd78dc3eb315?auto=format&fit=crop&q=80&w=800" },
+  { id: 16, name: "Jade Plant", category: "Indoor", season: "Winter", description: "A symbol of prosperity with thick, oval leaves on woody stems. Can live for decades.", price: 2100, stock: 70, image: "https://images.unsplash.com/photo-1622329381622-df38d2f5341f?auto=format&fit=crop&q=80&w=800" },
+  { id: 17, name: "Chrysanthemum", category: "Outdoor", season: "Autumn", description: "Classic autumn bloom that brings vibrant gold and burgundy colors as temperatures cool.", price: 1400, stock: 40, image: "https://images.unsplash.com/photo-1508615039623-a25605d2b022?auto=format&fit=crop&q=80&w=800" },
+  { id: 18, name: "Winter Jasmine", category: "Outdoor", season: "Winter", description: "Hardy winter-blooming outdoor shrub that flowers with bright yellow stars in cold months.", price: 1600, stock: 30, image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=800" }
 ];
 
 let S = { user: null, cart: [], plants: [], users: [], orders: [] };
 let authToken = localStorage.getItem('ep_token');
 let useAPI = true;
 
-if (!authToken) useAPI = false;
-
 const api = {
   get: async (url) => {
-    const res = await fetch(url, { headers: { 'Authorization': 'Bearer ' + authToken } });
+    const headers = {};
+    if (authToken) headers['Authorization'] = 'Bearer ' + authToken;
+    const res = await fetch(url, { headers });
     if (res.status === 403) { handleForbidden(); throw new ForbiddenError(); }
     if (!res.ok) { const text = await res.text(); throw new Error(text || 'API Error: ' + res.status); }
     const text = await res.text();
     try { return JSON.parse(text); } catch (e) { throw new Error('Invalid JSON: ' + text.substring(0, 100)); }
   },
   post: async (url, data) => {
+    const headers = { 'Content-Type': 'application/json' };
+    if (authToken) headers['Authorization'] = 'Bearer ' + authToken;
     const res = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + authToken },
+      headers,
       body: JSON.stringify(data)
     });
     if (res.status === 403) { handleForbidden(); throw new ForbiddenError(); }
@@ -60,9 +64,11 @@ const api = {
     return res.json();
   },
   put: async (url, data) => {
+    const headers = { 'Content-Type': 'application/json' };
+    if (authToken) headers['Authorization'] = 'Bearer ' + authToken;
     const res = await fetch(url, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + authToken },
+      headers,
       body: JSON.stringify(data)
     });
     if (res.status === 403) { handleForbidden(); throw new ForbiddenError(); }
@@ -70,7 +76,9 @@ const api = {
     return res.json();
   },
   del: async (url) => {
-    const res = await fetch(url, { method: 'DELETE', headers: { 'Authorization': 'Bearer ' + authToken } });
+    const headers = {};
+    if (authToken) headers['Authorization'] = 'Bearer ' + authToken;
+    const res = await fetch(url, { method: 'DELETE', headers });
     if (res.status === 403) { handleForbidden(); throw new ForbiddenError(); }
     if (!res.ok) throw new Error('API Error: ' + res.status);
   }
@@ -91,24 +99,39 @@ function handleForbidden() {
 }
 
 const loadState = async () => {
-  if (authToken && useAPI) {
-    try {
-      S.plants = await api.get('/api/plants');
-      const savedUser = localStorage.getItem('ep_user');
-      if (savedUser) {
-        S.user = JSON.parse(savedUser);
-        try { S.cart = await api.get('/api/cart/' + S.user.id); } catch (e) { console.warn('Cart load failed', e); }
-      }
-      return;
-    } catch (e) {
-      console.warn('API failed, using localStorage fallback');
-      useAPI = false;
+  // Try fetching latest plant catalog from backend API first
+  try {
+    const livePlants = await api.get('/api/plants');
+    if (Array.isArray(livePlants) && livePlants.length > 0) {
+      S.plants = livePlants;
+      savePlants();
     }
+  } catch (e) {
+    console.warn('API plant fetch failed, checking local storage/defaults', e);
   }
-  if (!useAPI) {
-    const DATA_VER = '2.1';
-    const currentVer = localStorage.getItem('ep_version');
-    let localPlants = JSON.parse(localStorage.getItem('ep_plants'));
+
+  // If user is authenticated, load user profile & cart
+  if (authToken) {
+    const savedUser = localStorage.getItem('ep_user');
+    if (savedUser) {
+      try {
+        S.user = JSON.parse(savedUser);
+        try { S.cart = await api.get('/api/cart/' + S.user.id); } catch (ce) { console.warn('Cart load failed', ce); }
+      } catch (ue) { console.warn(ue); }
+    }
+  } else {
+    S.users = JSON.parse(localStorage.getItem('ep_users')) || [];
+    S.orders = JSON.parse(localStorage.getItem('ep_orders')) || [];
+    const uid = localStorage.getItem('ep_uid');
+    if (uid) S.user = S.users.find(u => u.id === +uid) || null;
+    if (S.user) S.cart = JSON.parse(localStorage.getItem('ep_cart_' + S.user.id)) || [];
+  }
+
+  // Fallback to local plants or defaults if S.plants is still empty or has old version
+  const DATA_VER = '2.3';
+  const currentVer = localStorage.getItem('ep_version');
+  let localPlants = JSON.parse(localStorage.getItem('ep_plants'));
+  if (!S.plants || S.plants.length === 0) {
     if (currentVer !== DATA_VER || !localPlants || localPlants.length < DEFAULT_PLANTS.length) {
       S.plants = JSON.parse(JSON.stringify(DEFAULT_PLANTS));
       savePlants();
@@ -116,11 +139,13 @@ const loadState = async () => {
     } else {
       S.plants = localPlants;
     }
-    S.users = JSON.parse(localStorage.getItem('ep_users')) || [];
-    S.orders = JSON.parse(localStorage.getItem('ep_orders')) || [];
-    const uid = localStorage.getItem('ep_uid');
-    if (uid) S.user = S.users.find(u => u.id === +uid) || null;
-    if (S.user) S.cart = JSON.parse(localStorage.getItem('ep_cart_' + S.user.id)) || [];
+  }
+
+  // Ensure every plant has season defined
+  if (Array.isArray(S.plants)) {
+    S.plants.forEach(p => {
+      if (!p.season || !p.season.trim()) p.season = 'All-Season';
+    });
   }
 };
 
@@ -308,12 +333,16 @@ function initTheme() {
 function plantCard(p) {
   const isOutOfStock = p.stock === 0;
   const isLowStock = p.stock > 0 && p.stock <= 10;
+  const season = p.season || 'All-Season';
   return `
     <div class="card product-card fade-up">
         <div class="plant-visual" onclick="window.location.href='plant-detail.html?id=${p.id}'" style="cursor:pointer;"><img src="${p.image}" alt="${p.name}"></div>
         <div style="padding:20px;">
-            <div class="flex-between mb-8">
-                <span class="badge badge-cat">${p.category}</span>
+            <div class="flex-between mb-8" style="gap:6px;align-items:flex-start;">
+                <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
+                    <span class="badge badge-cat">${p.category}</span>
+                    <span class="badge badge-season"><i class="fas fa-calendar-alt" style="font-size:0.65rem;margin-right:3px;"></i>${season}</span>
+                </div>
                 ${isOutOfStock ? '<span class="badge badge-red">Sold Out</span>' : isLowStock ? `<span class="badge" style="background:rgba(245,158,11,0.1);color:#f59e0b;">Only ${p.stock} left</span>` : '<span class="badge badge-green">In Stock</span>'}
             </div>
             <h3 class="mb-4" onclick="window.location.href='plant-detail.html?id=${p.id}'" style="cursor:pointer;font-size:1.15rem;">${p.name}</h3>
@@ -394,23 +423,90 @@ async function initHome() {
   const hero = $('hero-featured-plant'); if (hero && S.plants[0]) hero.innerHTML = `<img src="${S.plants[0].image}" class="fade-up" style="width:100%;max-height:400px;object-fit:cover;border-radius:20px;box-shadow:var(--shadow);">`;
 }
 
+let currentCat = 'All';
+let currentSeason = 'All';
+
 async function initShop() {
-  if (useAPI && S.plants.length === 0) {
-    try { S.plants = await api.get('/api/plants'); } catch (e) { console.warn(e); }
+  if (!S.plants || S.plants.length === 0) {
+    try {
+      const res = await api.get('/api/plants');
+      if (Array.isArray(res) && res.length > 0) S.plants = res;
+    } catch (e) { console.warn(e); }
   }
-  const cats = ['All', ...new Set(S.plants.map(p => p.category))];
-  const fc = $('catFilters'); if (fc) fc.innerHTML = cats.map(c => `<button class="pill ${currentCat === c ? 'active' : ''}" onclick="setCat('${c}',this)">${c}</button>`).join('');
+
+  // Ensure every plant has a season fallback
+  S.plants.forEach(p => { if (!p.season || !p.season.trim()) p.season = 'All-Season'; });
+
+  // Read URL query params if present (e.g. ?category=Indoor or ?season=Spring)
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramCat = urlParams.get('category') || urlParams.get('cat');
+  const paramSeason = urlParams.get('season');
+  if (paramCat) currentCat = paramCat;
+  if (paramSeason) currentSeason = paramSeason;
+
+  // Type / Category tabs
+  const cats = ['All', ...new Set(S.plants.map(p => p.category).filter(Boolean))];
+  const fc = $('catFilters');
+  if (fc) {
+    fc.innerHTML = cats.map(c => `
+      <button type="button" class="pill ${currentCat.toLowerCase() === c.toLowerCase() ? 'active' : ''}" onclick="setCat('${c}',this)">${c}</button>
+    `).join('');
+  }
+
+  // Season tabs
+  const defaultSeasons = ['Spring', 'Summer', 'Autumn', 'Winter', 'All-Season'];
+  const plantSeasons = new Set(S.plants.map(p => p.season).filter(Boolean));
+  const seasonList = [
+    'All',
+    ...defaultSeasons.filter(s => plantSeasons.size === 0 || plantSeasons.has(s)),
+    ...[...plantSeasons].filter(s => !defaultSeasons.includes(s))
+  ];
+  const sf = $('seasonFilters');
+  if (sf) {
+    sf.innerHTML = seasonList.map(s => `
+      <button type="button" class="pill ${currentSeason.toLowerCase() === s.toLowerCase() ? 'active' : ''}" onclick="setSeason('${s}',this)">${s}</button>
+    `).join('');
+  }
+
   filterShop();
 }
 
-let currentCat = 'All';
-function setCat(cat, el) { currentCat = cat; document.querySelectorAll('#catFilters .pill').forEach(p => p.classList.remove('active')); el.classList.add('active'); filterShop(); }
+function setCat(cat, el) {
+  currentCat = cat;
+  document.querySelectorAll('#catFilters .pill').forEach(p => p.classList.remove('active'));
+  if (el) el.classList.add('active');
+  filterShop();
+}
+
+function setSeason(season, el) {
+  currentSeason = season;
+  document.querySelectorAll('#seasonFilters .pill').forEach(p => p.classList.remove('active'));
+  if (el) el.classList.add('active');
+  filterShop();
+}
+
 function filterShop() {
-  const q = ($('shopSearch')?.value || '').toLowerCase();
-  const f = S.plants.filter(p => (currentCat === 'All' || p.category === currentCat) && p.name.toLowerCase().includes(q));
-  const grid = $('shopGrid'); if (!grid) return;
-  if (!f.length) { grid.innerHTML = ''; $('shopEmpty').style.display = 'block'; }
-  else { $('shopEmpty').style.display = 'none'; grid.innerHTML = f.map(p => plantCard(p)).join(''); }
+  const q = ($('shopSearch')?.value || '').trim().toLowerCase();
+  const f = S.plants.filter(p => {
+    const pCat = p.category || '';
+    const pSeason = p.season || 'All-Season';
+
+    const matchesCat = (currentCat === 'All' || pCat.toLowerCase() === currentCat.toLowerCase());
+    const matchesSeason = (currentSeason === 'All' || pSeason.toLowerCase() === currentSeason.toLowerCase());
+    const matchesSearch = !q || p.name.toLowerCase().includes(q) || (p.description && p.description.toLowerCase().includes(q));
+
+    return matchesCat && matchesSeason && matchesSearch;
+  });
+
+  const grid = $('shopGrid');
+  if (!grid) return;
+  if (!f.length) {
+    grid.innerHTML = '';
+    $('shopEmpty').style.display = 'block';
+  } else {
+    $('shopEmpty').style.display = 'none';
+    grid.innerHTML = f.map(p => plantCard(p)).join('');
+  }
 }
 
 async function initDetail() {
@@ -425,7 +521,11 @@ async function initDetail() {
     <div class="grid-2" style="gap:60px;">
         <div class="fade-up"><img src="${p.image}" alt="${p.name}" style="width:100%; border-radius:20px; box-shadow:var(--shadow);"></div>
         <div class="fade-up" style="animation-delay:0.1s;">
-            <span class="badge badge-cat mb-12">${p.category}</span><h1 class="mb-12" style="font-size:2.5rem;">${p.name}</h1>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;" class="mb-12">
+                <span class="badge badge-cat">${p.category}</span>
+                ${p.season ? `<span class="badge badge-season"><i class="fas fa-calendar-alt" style="font-size:0.75rem;margin-right:4px;"></i>${p.season} Season</span>` : ''}
+            </div>
+            <h1 class="mb-12" style="font-size:2.5rem;">${p.name}</h1>
             <div class="text-green fw-700 mb-24" style="font-size:2rem;">${fmt(p.price)}</div>
             <p class="text-muted mb-24" style="font-size:1.1rem;line-height:1.8;">${p.description}</p>
             <div class="card" style="padding:24px;background:rgba(255,255,255,0.02);">
@@ -644,7 +744,7 @@ async function initAdminManage() {
   if (useAPI && S.plants.length === 0) {
     try { S.plants = await api.get('/api/plants'); } catch (e) { console.warn(e); }
   }
-  grid.innerHTML = S.plants.map(p => `<div class="card" style="padding:16px;display:flex;align-items:center;gap:16px;"><img src="${p.image}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;"><div style="flex:1;"><div class="fw-600">${p.name}</div><div class="text-muted text-sm">${p.category} • ${fmt(p.price)}</div></div><a href="admin-plant-form.html?id=${p.id}" class="btn btn-ghost btn-sm"><i class="fas fa-edit"></i></a><button class="btn btn-ghost btn-sm" onclick="deletePlant(${p.id})"><i class="fas fa-trash"></i></button></div>`).join('');
+  grid.innerHTML = S.plants.map(p => `<div class="card" style="padding:16px;display:flex;align-items:center;gap:16px;"><img src="${p.image}" style="width:60px;height:60px;object-fit:cover;border-radius:8px;"><div style="flex:1;"><div class="fw-600">${p.name}</div><div class="text-muted text-sm">${p.category} • ${p.season || 'All-Season'} • ${fmt(p.price)}</div></div><a href="admin-plant-form.html?id=${p.id}" class="btn btn-ghost btn-sm"><i class="fas fa-edit"></i></a><button class="btn btn-ghost btn-sm" onclick="deletePlant(${p.id})"><i class="fas fa-trash"></i></button></div>`).join('');
 }
 
 async function initAdminOrders() {
@@ -660,13 +760,31 @@ async function initAdminOrders() {
 
 function initAdminForm() {
   const id = new URLSearchParams(window.location.search).get('id'); const p = id ? getPlant(id) : null;
-  if (p) { $('form-title').innerText = 'Edit Plant'; $('pName').value = p.name; $('pCat').value = p.category; $('pPrice').value = p.price; $('pStock').value = p.stock; $('pDesc').value = p.description; $('pImage').value = p.image; }
+  if (p) {
+    $('form-title').innerText = 'Edit Plant';
+    $('pName').value = p.name;
+    $('pCat').value = p.category;
+    if ($('pSeason')) $('pSeason').value = p.season || 'All-Season';
+    $('pPrice').value = p.price;
+    $('pStock').value = p.stock;
+    $('pDesc').value = p.description;
+    $('pImage').value = p.image;
+  }
 }
 
 async function savePlant(e) {
   e.preventDefault();
   const id = new URLSearchParams(window.location.search).get('id');
-  const data = { name: $('pName').value, category: $('pCat').value, price: +$('pPrice').value, stock: +$('pStock').value, description: $('pDesc').value, image: $('pImage').value };
+  const seasonVal = $('pSeason') ? $('pSeason').value : 'All-Season';
+  const data = {
+    name: $('pName').value,
+    category: $('pCat').value,
+    season: seasonVal,
+    price: +$('pPrice').value,
+    stock: +$('pStock').value,
+    description: $('pDesc').value,
+    image: $('pImage').value
+  };
   try {
     if (id) {
       await api.put('/api/plants/' + id, data);
@@ -741,7 +859,7 @@ window.onload = async () => {
   const pg = document.body.dataset.page;
   switch (pg) {
     case 'home': await initHome(); break;
-    case 'shop': initShop(); break;
+    case 'shop': await initShop(); break;
     case 'detail': await initDetail(); break;
     case 'cart': await initCart(); break;
     case 'my-orders': await initMyOrders(); break;
@@ -758,6 +876,6 @@ window.onload = async () => {
 window.addToCart = addToCart; window.updateCartQty = updateCartQty; window.removeFromCart = removeFromCart;
 window.handleLogin = handleLogin; window.handleRegister = handleRegister;
 window.toggleSidebar = toggleSidebar; window.toggleDD = toggleDD; window.doLogout = doLogout;
-window.setCat = setCat; window.filterShop = filterShop; window.toggleTheme = toggleTheme;
+window.setCat = setCat; window.setSeason = setSeason; window.filterShop = filterShop; window.toggleTheme = toggleTheme;
 window.savePlant = savePlant; window.deletePlant = deletePlant; window.updateOrderStatus = updateOrderStatus;
 window.approveUser = approveUser; window.rejectUser = rejectUser; window.deleteUser = deleteUser;
